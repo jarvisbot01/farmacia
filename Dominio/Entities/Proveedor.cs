@@ -6,6 +6,7 @@ public class Proveedor : BaseEntity
     public string? Direccion { get; set; }
     public string? Telefono { get; set; }
     public string? Email { get; set; }
-    public string? Estado { get; set; }
     public DateTime UpdatedAt { get; set; }
+
+    ICollection<Compra>? Compras { get; set; }
 }

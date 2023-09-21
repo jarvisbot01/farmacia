@@ -9,4 +9,7 @@ public class Cliente : BaseEntity
     public string? Email { get; set; }
     public bool EstaRegistrado { get; set; }
     public DateTime UpdatedAt { get; set; }
+
+    ICollection<RecetaMedica>? RecetasMedicas { get; set; }
+    ICollection<Venta>? Ventas { get; set; }
 }

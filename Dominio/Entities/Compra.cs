@@ -6,5 +6,6 @@ public class Compra : BaseEntity
     public Proveedor? Proveedor { get; set; }
     public DateTime FechaCompra { get; set; }
     public int PrecioTotal { get; set; }
-    public DateTime UpdatedAt { get; set; } // Para que??
+
+    ICollection<Lote>? Lotes { get; set; }
 }

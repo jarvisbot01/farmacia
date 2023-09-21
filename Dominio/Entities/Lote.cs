@@ -9,6 +9,8 @@ public class Lote : BaseEntity
     public DateTime FechaVencimiento { get; set; }
     public int Cantidad { get; set; }
     public int PrecioUnitario { get; set; }
-    public int PrecioCompra { get; set; } // Cantidad * PrecioUnitario?
+    public int PrecioCompra { get; set; }
     public DateTime UpdatedAt { get; set; }
+
+    ICollection<DetalleVenta>? DetalleVentas { get; set; }
 }

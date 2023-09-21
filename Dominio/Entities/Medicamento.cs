@@ -6,8 +6,10 @@ public class Medicamento : BaseEntity
     public string? Concentracion { get; set; }
     public string? Precio { get; set; }
     public string? Stock { get; set; }
-    public string? PrincipioActivo { get; set; } // para que??
-    public string? Contraindicaciones { get; set; } // para que??
-    public string? DosisRecomendada { get; set; } // para que??
-    public DateTime FechaExpedicion { get; set; } // para que??
+    public string? Contraindicaciones { get; set; }
+    public string? DosisRecomendada { get; set; }
+    public DateTime FechaExpedicion { get; set; }
+
+    ICollection<DetalleVenta>? DetalleVentas { get; set; }
+    ICollection<Lote>? Lotes { get; set; }
 }

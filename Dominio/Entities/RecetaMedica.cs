@@ -6,5 +6,5 @@ public class RecetaMedica : BaseEntity
     public Cliente? Cliente { get; set; }
     public string? Token { get; set; }
     public string? Detalle { get; set; }
-    public DateTime FechaEmision { get; set; }
+    public DateOnly FechaEmision { get; set; }
 }
