@@ -1,4 +1,4 @@
-ARG VARIANT=7.0.400-bookworm-slim-amd64
+ARG VARIANT=7.0.401-bookworm-slim-amd64
 FROM mcr.microsoft.com/dotnet/sdk:${VARIANT}
 RUN apt-get update && \
     apt-get install -y curl bat exa mariadb-client ca-certificates gnupg && \
