@@ -27,10 +27,6 @@ public class MedicamentoConfiguration : IEntityTypeConfiguration<Medicamento>
 
         builder.Property(m => m.FechaExpedicion).HasColumnName("fechaExpedicion").IsRequired();
 
-        builder
-            .Property(m => m.CreatedAt)
-            .HasColumnName("createdAt")
-            .IsRequired()
-            .HasDefaultValueSql("now()");
+        builder.Property(m => m.CreatedAt).HasColumnName("createdAt").IsRequired();
     }
 }

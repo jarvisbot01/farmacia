@@ -18,8 +18,8 @@ public class ProveedorConfiguration : IEntityTypeConfiguration<Proveedor>
 
         builder.Property(e => e.Email).HasColumnName("email").IsRequired();
 
-        builder.Property(e => e.CreatedAt).HasColumnName("created_at").HasDefaultValueSql("now()");
+        builder.Property(e => e.CreatedAt).HasColumnName("createdAt");
 
-        builder.Property(e => e.UpdatedAt).HasColumnName("updated_at").HasDefaultValueSql("now()");
+        builder.Property(e => e.UpdatedAt).HasColumnName("updatedAt");
     }
 }

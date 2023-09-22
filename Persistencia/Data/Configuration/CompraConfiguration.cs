@@ -14,11 +14,7 @@ public class CompraConfiguration : IEntityTypeConfiguration<Compra>
 
         builder.Property(c => c.PrecioTotal).HasColumnName("precioTotal").IsRequired();
 
-        builder
-            .Property(c => c.CreatedAt)
-            .HasColumnName("createdAt")
-            .IsRequired()
-            .HasDefaultValueSql("now()");
+        builder.Property(c => c.CreatedAt).HasColumnName("createdAt").IsRequired();
 
         builder
             .HasOne(c => c.Proveedor)

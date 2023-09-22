@@ -10,14 +10,18 @@ public class VentaConfiguration : IEntityTypeConfiguration<Venta>
     {
         builder.ToTable("venta");
 
-        builder.HasOne(v => v.Cliente)
+        builder
+            .HasOne(v => v.Cliente)
             .WithMany(c => c.Ventas)
             .HasForeignKey(v => v.IdClienteFk)
             .IsRequired();
 
-        builder.HasOne(v => v.Empleado)
+        builder
+            .HasOne(v => v.Empleado)
             .WithMany(e => e.Ventas)
             .HasForeignKey(v => v.IdEmpleadoFk)
             .IsRequired();
+
+        builder.Property(v => v.CreatedAt).HasColumnName("createdAt").IsRequired();
     }
 }

@@ -14,8 +14,8 @@ public class RolConfiguration : IEntityTypeConfiguration<Rol>
 
         builder.Property(e => e.Descripcion).HasColumnName("descripcion").IsRequired();
 
-        builder.Property(e => e.CreatedAt).HasColumnName("created_at").HasDefaultValueSql("now()");
+        builder.Property(e => e.CreatedAt).HasColumnName("createdAt").IsRequired();
 
-        builder.Property(e => e.UpdatedAt).HasColumnName("updated_at").HasDefaultValueSql("now()");
+        builder.Property(e => e.UpdatedAt).HasColumnName("updatedAt").IsRequired();
     }
 }
