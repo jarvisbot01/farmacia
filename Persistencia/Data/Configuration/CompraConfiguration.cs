@@ -8,13 +8,17 @@ public class CompraConfiguration : IEntityTypeConfiguration<Compra>
 {
     public void Configure(EntityTypeBuilder<Compra> builder)
     {
-        builder.ToTable("Compra");
+        builder.ToTable("compra");
 
         builder.Property(c => c.FechaCompra).HasColumnName("fechaCompra").IsRequired();
 
         builder.Property(c => c.PrecioTotal).HasColumnName("precioTotal").IsRequired();
 
-        builder.Property(c => c.CreatedAt).HasColumnName("createdAt").IsRequired();
+        builder
+            .Property(c => c.CreatedAt)
+            .HasColumnName("createdAt")
+            .IsRequired()
+            .HasDefaultValueSql("now()");
 
         builder
             .HasOne(c => c.Proveedor)

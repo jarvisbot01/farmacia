@@ -20,10 +20,12 @@ public class EmpleadoConfiguration : IEntityTypeConfiguration<Empleado>
 
         builder.Property(e => e.Email).HasColumnName("email").IsRequired();
 
-        builder.Property(e => e.CreatedAt).HasColumnName("createdAt").IsRequired();
+        builder
+            .Property(e => e.CreatedAt)
+            .HasColumnName("createdAt")
+            .IsRequired()
+            .HasDefaultValueSql("now()");
 
-        builder.HasOne(e => e.Rol)
-            .WithMany(r => r.Empleados)
-            .HasForeignKey(e => e.RolIdFk);
+        builder.HasOne(e => e.Rol).WithMany(r => r.Empleados).HasForeignKey(e => e.RolIdFk);
     }
 }
