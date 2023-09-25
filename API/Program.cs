@@ -1,11 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using Persistencia;
+using API.Extensions;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.UseUrls("http://*:5000");
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.ConfigureCors();
+builder.Services.AddApplicationServices();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -13,7 +20,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<FarmaciaContext>(options =>
 {
-    string? connectionString = builder.Configuration.GetConnectionString("ConexMysql");
+    string connectionString = builder.Configuration.GetConnectionString("ConexMysql");
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
@@ -41,6 +48,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 

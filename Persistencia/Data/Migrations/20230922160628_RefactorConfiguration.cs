@@ -11,40 +11,35 @@ namespace Persistencia.Data.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "CreatedAt",
-                table: "venta",
-                newName: "createdAt");
+            migrationBuilder.RenameColumn(name: "CreatedAt", table: "venta", newName: "createdAt");
 
-            migrationBuilder.RenameColumn(
-                name: "updated_at",
-                table: "rol",
-                newName: "updatedAt");
+            migrationBuilder.RenameColumn(name: "updated_at", table: "rol", newName: "updatedAt");
 
-            migrationBuilder.RenameColumn(
-                name: "created_at",
-                table: "rol",
-                newName: "createdAt");
+            migrationBuilder.RenameColumn(name: "created_at", table: "rol", newName: "createdAt");
 
             migrationBuilder.RenameColumn(
                 name: "updated_at",
                 table: "proveedor",
-                newName: "updatedAt");
+                newName: "updatedAt"
+            );
 
             migrationBuilder.RenameColumn(
                 name: "created_at",
                 table: "proveedor",
-                newName: "createdAt");
+                newName: "createdAt"
+            );
 
             migrationBuilder.RenameColumn(
                 name: "updated_at",
                 table: "detalleVenta",
-                newName: "updatedAt");
+                newName: "updatedAt"
+            );
 
             migrationBuilder.RenameColumn(
                 name: "created_at",
                 table: "detalleVenta",
-                newName: "createdAt");
+                newName: "createdAt"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "updatedAt",
@@ -53,7 +48,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -62,7 +58,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -71,7 +68,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "updatedAt",
@@ -80,7 +78,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -89,7 +88,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -98,7 +98,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "updatedAt",
@@ -107,7 +108,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -116,7 +118,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -125,7 +128,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "updatedAt",
@@ -134,7 +138,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -143,7 +148,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -152,7 +158,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "updatedAt",
@@ -161,45 +168,54 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
 
-            migrationBuilder.AlterColumn<string>(
-                name: "telefono",
-                table: "cliente",
-                type: "longtext",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "longtext")
+            migrationBuilder
+                .AlterColumn<string>(
+                    name: "telefono",
+                    table: "cliente",
+                    type: "longtext",
+                    nullable: true,
+                    oldClrType: typeof(string),
+                    oldType: "longtext"
+                )
                 .Annotation("MySql:CharSet", "utf8mb4")
                 .OldAnnotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "nombre",
-                table: "cliente",
-                type: "longtext",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "longtext")
+            migrationBuilder
+                .AlterColumn<string>(
+                    name: "nombre",
+                    table: "cliente",
+                    type: "longtext",
+                    nullable: true,
+                    oldClrType: typeof(string),
+                    oldType: "longtext"
+                )
                 .Annotation("MySql:CharSet", "utf8mb4")
                 .OldAnnotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "email",
-                table: "cliente",
-                type: "longtext",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "longtext")
+            migrationBuilder
+                .AlterColumn<string>(
+                    name: "email",
+                    table: "cliente",
+                    type: "longtext",
+                    nullable: true,
+                    oldClrType: typeof(string),
+                    oldType: "longtext"
+                )
                 .Annotation("MySql:CharSet", "utf8mb4")
                 .OldAnnotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "direccion",
-                table: "cliente",
-                type: "longtext",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "longtext")
+            migrationBuilder
+                .AlterColumn<string>(
+                    name: "direccion",
+                    table: "cliente",
+                    type: "longtext",
+                    nullable: true,
+                    oldClrType: typeof(string),
+                    oldType: "longtext"
+                )
                 .Annotation("MySql:CharSet", "utf8mb4")
                 .OldAnnotation("MySql:CharSet", "utf8mb4");
 
@@ -210,46 +226,42 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime(6)",
-                oldDefaultValueSql: "now()");
+                oldDefaultValueSql: "now()"
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "createdAt",
-                table: "venta",
-                newName: "CreatedAt");
+            migrationBuilder.RenameColumn(name: "createdAt", table: "venta", newName: "CreatedAt");
 
-            migrationBuilder.RenameColumn(
-                name: "updatedAt",
-                table: "rol",
-                newName: "updated_at");
+            migrationBuilder.RenameColumn(name: "updatedAt", table: "rol", newName: "updated_at");
 
-            migrationBuilder.RenameColumn(
-                name: "createdAt",
-                table: "rol",
-                newName: "created_at");
+            migrationBuilder.RenameColumn(name: "createdAt", table: "rol", newName: "created_at");
 
             migrationBuilder.RenameColumn(
                 name: "updatedAt",
                 table: "proveedor",
-                newName: "updated_at");
+                newName: "updated_at"
+            );
 
             migrationBuilder.RenameColumn(
                 name: "createdAt",
                 table: "proveedor",
-                newName: "created_at");
+                newName: "created_at"
+            );
 
             migrationBuilder.RenameColumn(
                 name: "updatedAt",
                 table: "detalleVenta",
-                newName: "updated_at");
+                newName: "updated_at"
+            );
 
             migrationBuilder.RenameColumn(
                 name: "createdAt",
                 table: "detalleVenta",
-                newName: "created_at");
+                newName: "created_at"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "updated_at",
@@ -258,7 +270,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "created_at",
@@ -267,7 +280,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -276,7 +290,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "updated_at",
@@ -285,7 +300,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "created_at",
@@ -294,7 +310,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -303,7 +320,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "updatedAt",
@@ -312,7 +330,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -321,7 +340,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -330,7 +350,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "updated_at",
@@ -339,7 +360,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "created_at",
@@ -348,7 +370,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "createdAt",
@@ -357,7 +380,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "updatedAt",
@@ -366,23 +390,27 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
 
             migrationBuilder.UpdateData(
                 table: "cliente",
                 keyColumn: "telefono",
                 keyValue: null,
                 column: "telefono",
-                value: "");
+                value: ""
+            );
 
-            migrationBuilder.AlterColumn<string>(
-                name: "telefono",
-                table: "cliente",
-                type: "longtext",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "longtext",
-                oldNullable: true)
+            migrationBuilder
+                .AlterColumn<string>(
+                    name: "telefono",
+                    table: "cliente",
+                    type: "longtext",
+                    nullable: false,
+                    oldClrType: typeof(string),
+                    oldType: "longtext",
+                    oldNullable: true
+                )
                 .Annotation("MySql:CharSet", "utf8mb4")
                 .OldAnnotation("MySql:CharSet", "utf8mb4");
 
@@ -391,16 +419,19 @@ namespace Persistencia.Data.Migrations
                 keyColumn: "nombre",
                 keyValue: null,
                 column: "nombre",
-                value: "");
+                value: ""
+            );
 
-            migrationBuilder.AlterColumn<string>(
-                name: "nombre",
-                table: "cliente",
-                type: "longtext",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "longtext",
-                oldNullable: true)
+            migrationBuilder
+                .AlterColumn<string>(
+                    name: "nombre",
+                    table: "cliente",
+                    type: "longtext",
+                    nullable: false,
+                    oldClrType: typeof(string),
+                    oldType: "longtext",
+                    oldNullable: true
+                )
                 .Annotation("MySql:CharSet", "utf8mb4")
                 .OldAnnotation("MySql:CharSet", "utf8mb4");
 
@@ -409,16 +440,19 @@ namespace Persistencia.Data.Migrations
                 keyColumn: "email",
                 keyValue: null,
                 column: "email",
-                value: "");
+                value: ""
+            );
 
-            migrationBuilder.AlterColumn<string>(
-                name: "email",
-                table: "cliente",
-                type: "longtext",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "longtext",
-                oldNullable: true)
+            migrationBuilder
+                .AlterColumn<string>(
+                    name: "email",
+                    table: "cliente",
+                    type: "longtext",
+                    nullable: false,
+                    oldClrType: typeof(string),
+                    oldType: "longtext",
+                    oldNullable: true
+                )
                 .Annotation("MySql:CharSet", "utf8mb4")
                 .OldAnnotation("MySql:CharSet", "utf8mb4");
 
@@ -427,16 +461,19 @@ namespace Persistencia.Data.Migrations
                 keyColumn: "direccion",
                 keyValue: null,
                 column: "direccion",
-                value: "");
+                value: ""
+            );
 
-            migrationBuilder.AlterColumn<string>(
-                name: "direccion",
-                table: "cliente",
-                type: "longtext",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "longtext",
-                oldNullable: true)
+            migrationBuilder
+                .AlterColumn<string>(
+                    name: "direccion",
+                    table: "cliente",
+                    type: "longtext",
+                    nullable: false,
+                    oldClrType: typeof(string),
+                    oldType: "longtext",
+                    oldNullable: true
+                )
                 .Annotation("MySql:CharSet", "utf8mb4")
                 .OldAnnotation("MySql:CharSet", "utf8mb4");
 
@@ -447,7 +484,8 @@ namespace Persistencia.Data.Migrations
                 nullable: false,
                 defaultValueSql: "now()",
                 oldClrType: typeof(DateTime),
-                oldType: "datetime(6)");
+                oldType: "datetime(6)"
+            );
         }
     }
 }

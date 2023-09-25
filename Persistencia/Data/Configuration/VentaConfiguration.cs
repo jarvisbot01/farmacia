@@ -22,6 +22,10 @@ public class VentaConfiguration : IEntityTypeConfiguration<Venta>
             .HasForeignKey(v => v.IdEmpleadoFk)
             .IsRequired();
 
-        builder.Property(v => v.CreatedAt).HasColumnName("createdAt").IsRequired();
+        builder
+            .Property(v => v.CreatedAt)
+            .HasColumnName("createdAt")
+            .HasDefaultValueSql("now()")
+            .IsRequired();
     }
 }

@@ -18,9 +18,13 @@ public class LoteConfiguration : IEntityTypeConfiguration<Lote>
 
         builder.Property(l => l.PrecioCompra).HasColumnName("precioCompra").IsRequired();
 
-        builder.Property(l => l.CreatedAt).HasColumnName("createdAt").IsRequired();
+        builder
+            .Property(l => l.CreatedAt)
+            .HasColumnName("createdAt")
+            .HasDefaultValueSql("now()")
+            .IsRequired();
 
-        builder.Property(l => l.UpdatedAt).HasColumnName("updatedAt").IsRequired();
+        builder.Property(l => l.UpdatedAt).HasColumnName("updatedAt");
 
         builder
             .HasOne(l => l.Medicamento)

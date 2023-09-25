@@ -22,8 +22,12 @@ public class ClienteConfiguration : IEntityTypeConfiguration<Cliente>
 
         builder.Property(c => c.EstaRegistrado).HasColumnName("estaRegistrado").IsRequired();
 
-        builder.Property(c => c.CreatedAt).HasColumnName("createdAt").IsRequired();
+        builder
+            .Property(c => c.CreatedAt)
+            .HasColumnName("createdAt")
+            .HasDefaultValueSql("now()")
+            .IsRequired();
 
-        builder.Property(c => c.UpdatedAt).HasColumnName("updatedAt").IsRequired();
+        builder.Property(c => c.UpdatedAt).HasColumnName("updatedAt");
     }
 }

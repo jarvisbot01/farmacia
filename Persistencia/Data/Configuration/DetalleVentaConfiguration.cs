@@ -16,7 +16,11 @@ public class DetalleVentaConfiguration : IEntityTypeConfiguration<DetalleVenta>
 
         builder.Property(e => e.Subtotal).HasColumnName("subtotal").IsRequired();
 
-        builder.Property(e => e.CreatedAt).HasColumnName("createdAt");
+        builder
+            .Property(e => e.CreatedAt)
+            .HasColumnName("createdAt")
+            .HasDefaultValueSql("now()")
+            .IsRequired();
 
         builder.Property(e => e.UpdatedAt).HasColumnName("updatedAt");
 
