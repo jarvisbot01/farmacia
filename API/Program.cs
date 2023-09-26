@@ -2,8 +2,16 @@ using Microsoft.EntityFrameworkCore;
 using Persistencia;
 using API.Extensions;
 using System.Reflection;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var logger = new LoggerConfiguration().ReadFrom
+    .Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+
+builder.Logging.AddSerilog(logger);
 
 builder.WebHost.UseUrls("http://*:5000");
 
@@ -37,8 +45,8 @@ using (var scope = app.Services.CreateScope())
     }
     catch (Exception ex)
     {
-        var logger = loggerFactory.CreateLogger<Program>();
-        logger.LogError(ex, "Ocurrió un error durante la migración");
+        var _logger = loggerFactory.CreateLogger<Program>();
+        _logger.LogError(ex, "Ocurrió un error durante la migración");
     }
 }
 
