@@ -12,6 +12,5 @@ public class LoteDto
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 
-    public MedicamentoDto Medicamento { get; set; }
     public List<DetalleVentaDto> DetalleVentas { get; set; }
 }

@@ -1,3 +1,4 @@
+using System.Reflection;
 using Dominio.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,10 +18,11 @@ public class FarmaciaContext : DbContext
     public DbSet<Proveedor> Proveedores { get; set; }
     public DbSet<RecetaMedica> RecetasMedicas { get; set; }
     public DbSet<Rol> Roles { get; set; }
+    public DbSet<Venta> Ventas { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(FarmaciaContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }
