@@ -3,6 +3,7 @@ using API.Dtos;
 using Dominio.Entities;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers;
 
@@ -18,6 +19,7 @@ public class ClienteController : BaseApiController
     }
 
     [HttpGet]
+    [Authorize(Roles = "Vendedor")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<ClienteDto>>> Get()
@@ -27,6 +29,7 @@ public class ClienteController : BaseApiController
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Vendedor")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -42,6 +45,7 @@ public class ClienteController : BaseApiController
     }
 
     [HttpPost]
+    [Authorize(Roles = "Vendedor")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<ClienteDto>> Post(ClienteDto clienteDto)
@@ -60,6 +64,7 @@ public class ClienteController : BaseApiController
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "Vendedor")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -78,6 +83,7 @@ public class ClienteController : BaseApiController
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Vendedor")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Delete(int id)

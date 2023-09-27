@@ -19,6 +19,7 @@ public class FarmaciaContext : DbContext
     public DbSet<RecetaMedica> RecetasMedicas { get; set; }
     public DbSet<Rol> Roles { get; set; }
     public DbSet<Venta> Ventas { get; set; }
+    public DbSet<EmpleadoRol> EmpleadoRoles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

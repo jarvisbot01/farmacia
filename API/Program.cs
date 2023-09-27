@@ -19,6 +19,7 @@ builder.WebHost.UseUrls("http://*:5000");
 
 builder.Services.AddControllers();
 builder.Services.ConfigureCors();
+builder.Services.AddJwt(builder.Configuration);
 builder.Services.AddApplicationServices();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

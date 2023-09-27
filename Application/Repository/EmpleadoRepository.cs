@@ -32,4 +32,22 @@ public class EmpleadoRepository : GenericRepository<Empleado>, IEmpleado
             .AsSplitQuery()
             .FirstOrDefaultAsync(e => e.Id == id);
     }
+
+    public async Task<Empleado> GetByNombreAsync(string nombre)
+    {
+        return await _context.Empleados
+            .Include(e => e.Roles)
+            .Include(e => e.RefreshTokens)
+            .AsSplitQuery()
+            .FirstOrDefaultAsync(e => e.Nombre.ToLower() == nombre.ToLower());
+    }
+
+    public async Task<Empleado> GetByRefreshTokenAsync(string refreshToken)
+    {
+        return await _context.Empleados
+            .Include(e => e.Roles)
+            .Include(e => e.RefreshTokens)
+            .AsSplitQuery()
+            .FirstOrDefaultAsync(e => e.RefreshTokens.Any(t => t.Token == refreshToken));
+    }
 }
