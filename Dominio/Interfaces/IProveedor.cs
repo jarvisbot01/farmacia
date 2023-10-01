@@ -2,4 +2,7 @@ using Dominio.Entities;
 
 namespace Dominio.Interfaces;
 
-public interface IProveedor : IGeneric<Proveedor> { }
+public interface IProveedor : IGeneric<Proveedor>
+{
+    Task<IEnumerable<object>> GetTotalMedicamentosVendidosPorProveedor();
+}

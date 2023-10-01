@@ -34,4 +34,26 @@ public class ProveedorRepository : GenericRepository<Proveedor>, IProveedor
             .AsSplitQuery()
             .FirstOrDefaultAsync(p => p.Id == id);
     }
+
+    public async Task<IEnumerable<object>> GetTotalMedicamentosVendidosPorProveedor()
+    {
+        var result = await _context.Proveedores
+            .Include(p => p.Compras)
+            .ThenInclude(c => c.Lotes)
+            .ThenInclude(l => l.DetalleVentas)
+            .Select(
+                p =>
+                    new
+                    {
+                        NombreProveedor = p.Nombre,
+                        TotalVendido = p.Compras
+                            .SelectMany(c => c.Lotes)
+                            .SelectMany(l => l.DetalleVentas)
+                            .Sum(dv => dv.Cantidad)
+                    }
+            )
+            .ToListAsync();
+
+        return result;
+    }
 }

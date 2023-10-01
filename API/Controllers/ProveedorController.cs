@@ -92,4 +92,13 @@ public class ProveedorController : BaseApiController
         await _unitOfWork.SaveAsync();
         return NoContent();
     }
+
+    [HttpGet("totalMedicamentosVendidos")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> GetTotalMedicamentosVendidosPorProveedor()
+    {
+        var resultado = await _unitOfWork.Proveedores.GetTotalMedicamentosVendidosPorProveedor();
+        return Ok(resultado);
+    }
 }

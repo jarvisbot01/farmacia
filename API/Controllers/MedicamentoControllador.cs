@@ -95,4 +95,46 @@ public class MedicamentoController : BaseApiController
         await _unitOfWork.SaveAsync();
         return NoContent();
     }
+
+    [HttpGet("consultaMedicamentosBajoStock")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<MedicamentoDto>>> GetMedicamentosBajoStock()
+    {
+        var medicamentos = await _unitOfWork.Medicamentos.GetMedicamentosConMenosDe50Unidades(50);
+        return _mapper.Map<List<MedicamentoDto>>(medicamentos);
+    }
+
+    [HttpGet("consultaPorProveedor/{nombreProveedor}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<MedicamentoDto>>> GetMedicamentosPorProveedor(
+        string nombreProveedor
+    )
+    {
+        var medicamentos = await _unitOfWork.Medicamentos.GetMedicamentosPorProveedor(
+            nombreProveedor
+        );
+        return _mapper.Map<List<MedicamentoDto>>(medicamentos);
+    }
+
+    [HttpGet("totalVentas/{nombreMedicamento}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<int>> GetTotalVentasPorMedicamento(string nombreMedicamento)
+    {
+        var totalVentas = await _unitOfWork.Medicamentos.GetTotalVentasPorMedicamento(
+            nombreMedicamento
+        );
+        return Ok(totalVentas);
+    }
+
+    [HttpGet("medicamentosNoVendidos")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<MedicamentoDto>>> GetMedicamentosNoVendidos()
+    {
+        var medicamentos = await _unitOfWork.Medicamentos.GetMedicamentosNoVendidos();
+        return _mapper.Map<List<MedicamentoDto>>(medicamentos);
+    }
 }
