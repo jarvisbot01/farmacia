@@ -144,4 +144,22 @@ public class MedicamentoController : BaseApiController
         var result = await _unitOfWork.Medicamentos.GetMedicamentoMenosVendidoEn2023();
         return Ok(result);
     }
+
+    [HttpGet("caducan-antes-2024")]
+    public async Task<IActionResult> GetMedicamentosCaducanAntesDe2024()
+    {
+        var medicamentos = await _unitOfWork.Medicamentos.ObtenerMedicamentosCaducanAntesDe2024();
+        return Ok(medicamentos);
+    }
+
+    [HttpGet("medicamento-mas-caro")]
+    public async Task<IActionResult> GetMedicamentoMasCaro()
+    {
+        var medicamentoMasCaro = await _unitOfWork.Medicamentos.ObtenerMedicamentoMasCaro();
+        if (medicamentoMasCaro == null)
+        {
+            return NotFound("No se encontraron medicamentos");
+        }
+        return Ok(medicamentoMasCaro);
+    }
 }

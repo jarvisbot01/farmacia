@@ -89,4 +89,22 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
         var result = await query.FirstOrDefaultAsync();
         return result;
     }
+
+    public async Task<IEnumerable<Medicamento>> ObtenerMedicamentosCaducanAntesDe2024()
+    {
+        var fechaLimite = new DateTime(2024, 1, 1);
+        var lotes = await _context.Lotes
+            .Include(l => l.Medicamento)
+            .Where(l => l.FechaVencimiento < fechaLimite)
+            .ToListAsync();
+
+        return lotes.Select(l => l.Medicamento).Distinct();
+    }
+
+    public async Task<Medicamento> ObtenerMedicamentoMasCaro()
+    {
+        return await _context.Medicamentos
+            .OrderByDescending(m => Convert.ToDecimal(m.Precio))
+            .FirstOrDefaultAsync();
+    }
 }

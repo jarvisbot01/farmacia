@@ -1,6 +1,7 @@
 using Persistencia;
 using Dominio.Entities;
 using Dominio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Repository;
 
@@ -12,5 +13,10 @@ public class DetalleVentaRepository : GenericRepository<DetalleVenta>, IDetalleV
         : base(context)
     {
         _context = context;
+    }
+
+    public async Task<decimal> ObtenerTotalRecaudado()
+    {
+        return await _context.DetalleVentas.SumAsync(dv => dv.Subtotal);
     }
 }

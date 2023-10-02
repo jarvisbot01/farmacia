@@ -9,4 +9,6 @@ public interface IMedicamento : IGeneric<Medicamento>
     Task<int> GetTotalVentasPorMedicamento(string nombreMedicamento);
     Task<IEnumerable<Medicamento>> GetMedicamentosNoVendidos();
     Task<Medicamento> GetMedicamentoMenosVendidoEn2023();
+    Task<IEnumerable<Medicamento>> ObtenerMedicamentosCaducanAntesDe2024();
+    Task<Medicamento> ObtenerMedicamentoMasCaro();
 }

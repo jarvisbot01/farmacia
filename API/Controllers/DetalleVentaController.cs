@@ -95,4 +95,11 @@ public class DetalleVentaController : BaseApiController
         await _unitOfWork.SaveAsync();
         return NoContent();
     }
+
+    [HttpGet("total-recaudado")]
+    public async Task<IActionResult> GetTotalRecaudado()
+    {
+        var totalRecaudado = await _unitOfWork.DetallesVentas.ObtenerTotalRecaudado();
+        return Ok(totalRecaudado);
+    }
 }
