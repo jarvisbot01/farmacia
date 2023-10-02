@@ -95,4 +95,13 @@ public class RecetaMedicaController : BaseApiController
         await _unitOfWork.SaveAsync();
         return NoContent();
     }
+
+    [HttpGet("recetas-post-2023")]
+    public async Task<IActionResult> GetRecetasPost2023()
+    {
+        var recetas = await _unitOfWork.RecetasMedicas.ObtenerRecetasPosteriorA(
+            new DateTime(2023, 1, 1)
+        );
+        return Ok(recetas);
+    }
 }

@@ -17,7 +17,24 @@ builder.WebHost.UseUrls("http://*:5000");
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.DefaultIgnoreCondition = System
+            .Text
+            .Json
+            .Serialization
+            .JsonIgnoreCondition
+            .WhenWritingNull;
+        options.JsonSerializerOptions.ReferenceHandler = System
+            .Text
+            .Json
+            .Serialization
+            .ReferenceHandler
+            .Preserve;
+    });
+;
 builder.Services.ConfigureCors();
 builder.Services.AddApplicationServices();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());

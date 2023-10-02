@@ -35,6 +35,49 @@ public class ProveedorRepository : GenericRepository<Proveedor>, IProveedor
             .FirstOrDefaultAsync(p => p.Id == id);
     }
 
+    public async Task<IEnumerable<object>> GetProveedoresConMedicamentos()
+    {
+        var datos = await (
+            from p in _context.Proveedores
+            join c in _context.Compras on p.Id equals c.IdProveedorFk
+            join l in _context.Lotes on c.Id equals l.IdCompraFk
+            join m in _context.Medicamentos on l.IdMedicamentoFk equals m.Id
+            select new
+            {
+                NombreProveedor = p.Nombre,
+                p.Direccion,
+                p.Telefono,
+                p.Email,
+                NombreMedicamento = m.Nombre
+            }
+        ).ToListAsync();
+
+        var resultado = datos
+            .GroupBy(
+                d =>
+                    new
+                    {
+                        d.NombreProveedor,
+                        d.Direccion,
+                        d.Telefono,
+                        d.Email
+                    }
+            )
+            .Select(
+                g =>
+                    new
+                    {
+                        NombreProveedor = g.Key.NombreProveedor,
+                        Direccion = g.Key.Direccion,
+                        Telefono = g.Key.Telefono,
+                        Email = g.Key.Email,
+                        Medicamentos = g.Select(d => d.NombreMedicamento).Distinct().ToList()
+                    }
+            );
+
+        return resultado;
+    }
+
     public async Task<IEnumerable<object>> GetTotalMedicamentosVendidosPorProveedor()
     {
         var result = await _context.Proveedores

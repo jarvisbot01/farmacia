@@ -93,6 +93,15 @@ public class ProveedorController : BaseApiController
         return NoContent();
     }
 
+    [HttpGet("proveedores-medicamentos")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> GetProveedoresConMedicamentos()
+    {
+        var proveedores = await _unitOfWork.Proveedores.GetProveedoresConMedicamentos();
+        return Ok(proveedores);
+    }
+
     [HttpGet("totalMedicamentosVendidos")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
