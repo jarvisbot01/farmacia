@@ -101,4 +101,13 @@ public class ProveedorController : BaseApiController
         var resultado = await _unitOfWork.Proveedores.GetTotalMedicamentosVendidosPorProveedor();
         return Ok(resultado);
     }
+
+    [HttpGet("numeroDeMedicamentos")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> GetNumeroDeMedicamentosPorProveedor()
+    {
+        var resultado = await _unitOfWork.Proveedores.GetNumeroDeMedicamentosPorProveedor();
+        return Ok(resultado);
+    }
 }

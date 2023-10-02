@@ -137,4 +137,11 @@ public class MedicamentoController : BaseApiController
         var medicamentos = await _unitOfWork.Medicamentos.GetMedicamentosNoVendidos();
         return _mapper.Map<List<MedicamentoDto>>(medicamentos);
     }
+
+    [HttpGet("menosVendidoEn2023")]
+    public async Task<ActionResult<Medicamento>> GetMedicamentoMenosVendidoEn2023()
+    {
+        var result = await _unitOfWork.Medicamentos.GetMedicamentoMenosVendidoEn2023();
+        return Ok(result);
+    }
 }

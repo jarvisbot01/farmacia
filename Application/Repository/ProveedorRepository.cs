@@ -56,4 +56,22 @@ public class ProveedorRepository : GenericRepository<Proveedor>, IProveedor
 
         return result;
     }
+
+    public async Task<IEnumerable<object>> GetNumeroDeMedicamentosPorProveedor()
+    {
+        var query =
+            from p in _context.Proveedores
+            join c in _context.Compras on p.Id equals c.IdProveedorFk
+            join l in _context.Lotes on c.Id equals l.IdCompraFk
+            join m in _context.Medicamentos on l.IdMedicamentoFk equals m.Id
+            group m by p.Nombre into g
+            select new
+            {
+                NombreProveedor = g.Key,
+                NumeroDeMedicamentos = g.Select(m => m.Id).Distinct().Count()
+            };
+
+        var result = await query.ToListAsync();
+        return result;
+    }
 }

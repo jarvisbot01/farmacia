@@ -74,4 +74,19 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
 
         return result;
     }
+
+    public async Task<Medicamento> GetMedicamentoMenosVendidoEn2023()
+    {
+        var query =
+            from dv in _context.DetalleVentas
+            join m in _context.Medicamentos on dv.IdMedicamentoFk equals m.Id
+            join v in _context.Ventas on dv.IdVentaFk equals v.Id
+            where v.CreatedAt.Year == 2023
+            group dv by m into g
+            orderby g.Sum(dv => dv.Cantidad) ascending
+            select g.Key;
+
+        var result = await query.FirstOrDefaultAsync();
+        return result;
+    }
 }
