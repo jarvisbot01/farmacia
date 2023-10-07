@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: farmacia-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: farmacia-app
+  template:
+    metadata:
+      labels:
+        app: farmacia-app
+    spec:
+      containers:
+      - name: farmacia-app
+        image: farmacia
+        imagePullPolicy: IfNotPresent
