@@ -14,8 +14,6 @@ var logger = new LoggerConfiguration().ReadFrom
 
 builder.Logging.AddSerilog(logger);
 
-builder.WebHost.UseUrls("http://*:5000");
-
 // Add services to the container.
 
 builder.Services.AddControllers();

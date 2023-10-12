@@ -24,4 +24,6 @@ RUN dotnet publish --no-restore -o /app
 FROM mcr.microsoft.com/dotnet/aspnet:7.0.11-bookworm-slim-amd64
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "API.dll"]
+
+ENTRYPOINT ["dotnet"]
+CMD ["API.dll", "--urls", "http://+:5000"]
